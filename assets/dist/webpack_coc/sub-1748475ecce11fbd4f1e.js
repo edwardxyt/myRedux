@@ -1,2 +1,0 @@
-webpackJsonp([2],{459:function(e,exports,n){(function($){"use strict";function n(){var e=document.createElement("h2");return e.innerHTML="Hello world sub",e}$(function(){console.log("jquery sub.js")}),e.exports={generateText:n}}).call(exports,n(365))}});
-//# sourceMappingURL=sub-1748475ecce11fbd4f1e.js.map
