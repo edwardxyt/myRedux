@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>React中的事件</title>
+</head>
+<body>
+    <script src="./react-0.13.2/react-0.13.2/build/react.js"></script>
+    <script src="./react-0.13.2/react-0.13.2/build/JSXTransformer.js"></script>
+    <script type="text/jsx">
+        var HelloWorld = React.createClass({
+            handleChange: function (event) {
+                console.log(event.target.value);
+            },
+            render: function () {
+                return <div>
+                <input onChange={this.handleChange}></input>
+                </div>;
+            },
+        });
+        React.render(<HelloWorld></HelloWorld>, document.body);
+    </script>
+</body>
+</html>

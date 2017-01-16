@@ -1,0 +1,108 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   font: inherit;
+   font-size: 100%;
+   vertical-align: baseline;
+}
+html {
+   line-height: 1;
+}
+ol, ul {
+   list-style: none;
+}
+table {
+   border-collapse: collapse;
+   border-spacing: 0;
+}
+caption, th, td {
+   text-align: left;
+   font-weight: normal;
+   vertical-align: middle;
+}
+q, blockquote {
+   quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+   content: "";
+   content: none;
+}
+a img {
+   border: none;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+   display: block;
+}
+/* ------------------ compass-reset end ------------------ */
+::placeholder {
+   color: #666;
+}
+*, *:before, *:after {
+   box-sizing: inherit;
+   /* transition: all .2s; */
+}
+html, body {
+   min-height: 100vh;
+   -webkit-overflow-scrolling: touch;
+   overflow-scrolling: touch;
+}
+body {
+   position: relative;
+   font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+   line-height: 1.5;
+   /* MacOS的Webkit中字体显示效果  none(无抗齿距) | subpixel-antialiased | default (次像素平滑) | antialiased(灰度平滑) */
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;  /*设置grayscale对于图标字体表现更清晰*/
+}
+input, button, textarea {
+   outline: none!important;
+}
+a {
+   color: #333;
+}
+a:visited {
+   color: #333;
+}
+a:focus {
+   color: #369;
+}
+a:hover {
+   color: #ff1a17;
+}
+a:active {
+   color: #000;
+}
+a:hover, a:focus {
+   text-decoration: none;
+   text-decoration: underline;
+}
+a>img {
+   vertical-align: middle;
+}
+/* ----------------------- font ------------------- */
+@font-face {
+ font-family: 'iconfont';  /* project id 202585 */
+ src: url('http://at.alicdn.com/t/font_bx47iconn3w3766r.eot');
+ src: url('http://at.alicdn.com/t/font_bx47iconn3w3766r.eot?#iefix') format('embedded-opentype'),
+ url('http://at.alicdn.com/t/font_bx47iconn3w3766r.woff') format('woff'),
+ url('http://at.alicdn.com/t/font_bx47iconn3w3766r.ttf') format('truetype'),
+ url('http://at.alicdn.com/t/font_bx47iconn3w3766r.svg#iconfont') format('svg');
+}
+.iconfont {
+   font-family: "iconfont";
+   font-size: 16px;
+   font-style: normal;
+   -webkit-font-smoothing: antialiased;
+   -webkit-text-stroke-width: 0.2px;
+   vertical-align: middle;
+}
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+/* ------------- my style --------------- */

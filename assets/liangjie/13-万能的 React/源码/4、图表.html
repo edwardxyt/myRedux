@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>万能的React</title>
+</head>
+<body>
+    <script src="./react-0.13.2/react-0.13.2/build/react.js"></script>
+    <script src="./react-0.13.2/react-0.13.2/build/JSXTransformer.js"></script>
+    <script type="text/jsx">
+        var Sparkline = React.createClass({ 
+            render: function () {
+                var width = 200;
+                var height = 200;
+                var path = this.generatePath(width, height,
+                this.props.points);
+                return (
+                <svg width={width} height={height}>
+                          <path d={path} stroke='#7ED321' strokeWidth='2'
+                  fill='none'/>
+                </svg> );
+            },
+            generatePath: function (width, height, points) { 
+                var maxHeight = 200;
+                var maxWidth = points.length;
+                return points.map(function (p, i) {
+                var xPct = i / maxWidth * 100;
+                var x = (width / 100) * xPct;
+                var yPct = 100 - (p / maxHeight * 100); var y = (height / 100) * yPct;
+                if (i === 0) { return 'M0,' + y;
+                } else {
+                return 'L' + x + ',' + y; }
+                      }).join(' ');
+            }
+        });
+
+        React.render(<Sparkline points={[1, 5, 15, 100, 150]}></Sparkline>, document.body);
+    </script>
+</body>
+</html>

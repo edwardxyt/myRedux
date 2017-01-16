@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>父子关系</title>
+</head>
+<body>
+    <script src="./react-0.13.2/react-0.13.2/build/react.js"></script>
+    <script src="./react-0.13.2/react-0.13.2/build/JSXTransformer.js"></script>
+    <script type="text/jsx">
+        /*
+         * 子组件触发的下拉框onChange事件，所调用的函数就是父组件传入子组件的props。既父组件的handleChange函数。这样子组件就间接的与父组件交互了
+         */
+        var GenderSelect = React.createClass({  //子
+            render: function() {
+                return  <select onChange={this.props.handleSelect}>
+                            <option value="0">男</option>
+                            <option value="1">女</option>
+                        </select>
+            }
+        })
+        var SignupForm = React.createClass({  //父
+            getInitialState: function() {
+                return {
+                    name: '',
+                    password: '',
+                    gender: '0',
+                }
+            },
+            handleChange: function(name, event) {
+                var newState = {}
+                newState[name] = event.target.value
+                this.setState(newState)
+            },
+            handleSelect: function(event) {  //select onChange时，触发函数
+                this.setState({gender: event.target.value})
+            },
+            render: function() {
+                console.log(this.state)
+                return  <div><h1>子组件间接调用父组件</h1><form>
+                            <input type="text" placeholder="请输入用户名" onChange={this.handleChange.bind(this, 'name')} />
+                            <input type="password" placeholder="请输入密码" onChange={this.handleChange.bind(this, 'password')} />
+                            <GenderSelect handleSelect={this.handleSelect}></GenderSelect>
+                        </form></div>
+            }
+        })
+        React.render(<SignupForm></SignupForm>, document.body);
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>React中的事件</title>
+</head>
+<body>
+    <script src="./react-0.13.2/react-0.13.2/build/react.js"></script>
+    <script src="./react-0.13.2/react-0.13.2/build/JSXTransformer.js"></script>
+    <script type="text/jsx">
+        var HelloWorld = React.createClass({
+            getInitialState: function () {
+                return {
+                    backgroundColor: '#FFFFFF'
+                }
+            },
+            handleWheel: function (event) {
+                var newColor = (parseInt(this.state.backgroundColor.substr(1), 16) + event.deltaY * 997).toString(16);
+                newColor = '#' + newColor.substr(newColor.length - 6).toUpperCase();
+                this.setState({
+                    backgroundColor: newColor
+                })
+            },
+            render: function () {
+                console.log(this.state)
+                return <div onWheel={this.handleWheel} style={this.state}>
+                        <p>Hello, World</p>
+                    </div>;
+            },
+        });
+        React.render(<HelloWorld></HelloWorld>, document.body);
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+@import 'variables';
+@import 'mixin';
+@import 'extend';
+h1 {
+  color: $gray;
+  transition: all 0.6s ease-in;
+  background: url('../image/avatar.jpg');
+}

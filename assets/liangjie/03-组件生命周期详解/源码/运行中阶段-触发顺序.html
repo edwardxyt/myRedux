@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello, World</title>
+</head>
+<body>
+	<script src="./react-0.13.2/react-0.13.2/build/react.js"></script>
+    <script src="./react-0.13.2/react-0.13.2/build/JSXTransformer.js"></script>
+    <script type="text/jsx">
+        var style = {
+            color: "red",
+            border: "1px #000 solid",
+        };
+        var HelloWorld = React.createClass({  //子组件
+            componentWillReceiveProps: function (a,b,c,d) {  //组件将要改变属性的时候。例如父组件修改属性触发，可以修改新属性、修改状态
+                console.log("componentWillReceiveProps 1",a,b,c,d);
+            },
+            shouldComponentUpdate: function (a,b,c,d) {  //组件是否要更新？返回false会阻止render调用（大部分不会用这个函数）
+                console.log("shouldComponentUpdate 2",a,b,c,d);
+                return true;
+            },
+            componentWillUpdate: function (a,b,c,d) {  //组件将要更新，不能修改属性和状态
+                console.log("componentWillUpdate 3",a,b,c,d)
+            },
+            render: function () {
+                console.log("render 4");
+                return <p>
+                        Hello,
+                        {this.props.name ? this.props.name : "World"}、
+                    </p>;  //this.props 属性
+            },
+            componentDidUpdate: function(a,b,c,d) {  //可以修改DOM
+				if (this.isMounted()) {
+					console.log("componentDidUpdate 5",a,b,c,d);
+				}
+            },
+        });
+        var HelloUniverse = React.createClass({  //父组件
+            getInitialState: function () {  //默认状态
+                return {name: ''};
+            },
+            handleChange: function (event) {  //表单onChange事件的 回调函数
+                this.setState({name: event.target.value});
+            },
+            render: function () {
+                return  <div>
+                            <HelloWorld name={this.state.name}></HelloWorld>  //用户在表单填入的内容，属于用户跟组件的互动，所以不能用 this.props 读取
+                            <br/>
+                            <input type="text" onChange={this.handleChange} />
+                        </div>
+            },
+        });
+        React.render(<div style={style}><HelloUniverse></HelloUniverse></div>, document.body);
+    </script>
+</body>
+</html>

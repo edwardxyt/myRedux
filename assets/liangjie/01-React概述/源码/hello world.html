@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello, World</title>
+</head>
+<body>
+	<script src="./react-0.13.2/react-0.13.2/build/react.js"></script>
+    <script src="./react-0.13.2/react-0.13.2/build/JSXTransformer.js"></script>
+    <script type="text/jsx">
+    	var HelloWorld = React.createClass({
+    		render: function () {
+    			return <p>Hello, World</p>
+    		}
+    	});
+    	React.render(<HelloWorld></HelloWorld>, document.body);
+    </script>
+</body>
+</html>

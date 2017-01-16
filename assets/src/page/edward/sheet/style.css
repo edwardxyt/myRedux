@@ -1,0 +1,6 @@
+$text_color: #336699;
+body { background: $text_color };
+h2 {
+  background: url('../image/avatar.jpg');
+  transition: all 0.6s ease-in;
+}

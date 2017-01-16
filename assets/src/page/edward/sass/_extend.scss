@@ -1,0 +1,53 @@
+%main {
+	width:$percent;
+	@include marginAuto(0,20px);
+}
+%float-left {
+	float: left;
+}
+%float-right {
+	float: right;
+}
+%height-inherit{
+	height: 100%;
+}
+%width-inherit{
+	width: 100%;
+}
+%text-overflow {
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+%position-center {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+}
+%vertical-center {
+	position: absolute;
+	top:50%;
+	transform: translateY(-50%);
+}
+%level-center {
+	position: absolute;
+	left:50%;
+	transform: translateX(-50%);
+}
+%legacy-pie-clearfix {
+  *zoom: 1;
+	&:after {
+		content: "\0020";
+		display: block;
+		height: 0;
+		clear: both;
+		overflow: hidden;
+		visibility: hidden;
+	}
+}
+%ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

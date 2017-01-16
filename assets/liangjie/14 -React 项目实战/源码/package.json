@@ -1,0 +1,16 @@
+{
+  "name": "practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jasmine-react-helpers": "^0.2.2",
+    "react": "^0.13.3",
+    "reactify": "^1.1.1"
+  }
+}

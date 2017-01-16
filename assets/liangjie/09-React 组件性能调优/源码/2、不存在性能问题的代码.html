@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>React性能调优</title>
+</head>
+<body>
+    <script src="./react-0.13.2/react-0.13.2/build/react-with-addons.js"></script>
+    <script src="./react-0.13.2/react-0.13.2/build/JSXTransformer.js"></script>
+    <script type="text/jsx">
+        var NumberDiv = React.createClass({
+            getDefaultProps: function () {  //默认属性
+                console.log('React.addons.Perf.start()');
+                console.log('React.addons.Perf.stop()');
+                console.log('React.addons.Perf.printInclusive()');
+            },
+            getInitialState: function () {
+                return {
+                    number: this.props.number,
+                }
+            },
+            shouldComponentUpdate: function (nextProps) {
+                // console.log(nextProps);
+                return nextProps.render
+            },
+            render: function () {
+                var style = {
+                    height: "100px",
+                    width: "100px",
+                    float: "left",
+                    margin: "10px",
+                    backgroundColor: "gray",
+                }
+                var chosedStyle = {
+                    height: "100px",
+                    width: "100px",
+                    float: "left",
+                    margin: "10px",
+                    backgroundColor: "red",
+                }
+                return  <div style={this.props.chosedNumber === this.state.number ? chosedStyle : style}>
+                            {this.state.number}
+                        </div>
+            }
+        })
+        var ChooseNumber = React.createClass({
+            getInitialState: function () {
+                return {
+                    inputNumber: -1,
+                    lastNumber: -1
+                }
+            },
+            handleChange: function (e) {
+                if (parseInt(e.target.value) !== this.state.inputNumber) {
+                    this.setState({
+                        inputNumber: parseInt(e.target.value),
+                        lastNumber: this.state.inputNumber
+                    })
+                }
+            },
+            render: function () {
+                var inputStyle = {
+                    display: "block",
+                    clear: "both",
+                    width: "200px",
+                    marginBottom: "10px",
+                }
+                var children = []
+                for (var i = 0; i < 20000; i++) {
+                    children.push(<NumberDiv key={i} render={i == this.state.inputNumber || i == this.state.lastNumber} chosedNumber={this.state.inputNumber} number={i}></NumberDiv>)
+                }
+                return  <div>
+                            <input type="text" style={inputStyle} placeholder="请输入一个数字" onChange={this.handleChange} />
+                            {children}
+                        </div>;
+            }
+        });
+        React.render(<ChooseNumber></ChooseNumber>, document.body);
+    </script>
+</body>
+</html>

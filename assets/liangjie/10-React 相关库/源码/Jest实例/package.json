@@ -1,0 +1,27 @@
+{
+  "name": "jest-demo",
+  "version": "1.0.0",
+  "description": "show how to use jest with react",
+  "main": "index.html",
+  "dependencies": {
+    "browserify": "^11.0.0",
+    "gulp": "^3.9.0",
+    "jest-cli": "^0.4",
+    "react": "^0.13.3",
+    "react-tools": "^0.13.3",
+    "reactify": "^1.1.1",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest",
+    "jest": {
+      "scriptPreprocessor": "<rootDir>/preprocessor.js",
+      "unmockedModulePathPatterns": [
+        "<rootDir>/node_modules/react"
+      ]
+    }
+  },
+  "author": "liangjie",
+  "license": "ISC"
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>React动画</title>
+</head>
+
+<body>
+    <script src="./react-0.13.2/react-0.13.2/build/react.js"></script>
+    <script src="./react-0.13.2/react-0.13.2/build/JSXTransformer.js"></script>
+    <script type="text/jsx">
+        var Positioner = React.createClass({
+            getInitialState: function() {
+                return {
+                    position: 0
+                };
+            },
+            resolveSetTimeout: function() {
+                if (this.state.position < this.props.position) {
+                    this.setState({
+                        position: this.state.position + 0.2
+                    });
+                }
+            },
+            componentDidUpdate: function() {
+                if (this.props.position) {
+                    setTimeout(this.resolveSetTimeout, this.props.timeoutMs);
+                }
+            },
+            render: function() {
+                    var divStyle = {
+                        marginLeft: this.state.position
+                    };
+                    return <div style={divStyle}> This will animate! </div>
+                }
+            })
+        React.render(<Positioner></Positioner>, document.body);
+        React.render(<Positioner position={100} timeoutMs={16.66666666666667}></Positioner>, document.body);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>万能的React</title>
+</head>
+<body>
+    <script src="./react-0.13.2/react-0.13.2/build/react.js"></script>
+    <script src="./react-0.13.2/react-0.13.2/build/JSXTransformer.js"></script>
+    <script type="text/jsx">
+        var Email = React.createClass({
+            render: function () {
+                return (
+                <html>
+                    <body>
+                        {this.props.children} 
+                    </body>
+                </html> );
+            } 
+        });
+        var SurveyEmail = React.createClass({
+            render: function () {
+                var survey = this.props.survey;
+                var completions = survey.activity.reduce(function (memo, a) {
+                    return memo + a;
+                }, 0);
+                var daysRunning = survey.activity.length;
+                return (
+                <Email>
+                  <h2>{survey.title}</h2>
+                  <table className='for-desktop'>
+                    <tr> 
+                    <td>
+                        完成任务数量：{completions}
+                    </td>
+                    <td>
+                        工作天数：{daysRunning}
+                    </td> 
+                    </tr>
+                  </table>
+                </Email>);
+            } });
+        var survey = {
+            title: "月度总结",
+            activity: [1, 2, 100, 500]
+        }
+        React.render(<SurveyEmail survey={survey}></SurveyEmail>, document.body);
+        console.log(React.renderToStaticMarkup(<SurveyEmail survey={survey}></SurveyEmail>));
+    </script>
+</body>
+</html>

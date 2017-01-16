@@ -1,0 +1,16 @@
+{
+  "name": "gulp-demo",
+  "version": "1.0.0",
+  "description": "show how to use gulp",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "liangjie",
+  "license": "ISC",
+  "dependencies": {
+    "gulp-react": "^3.0.1",
+    "react": "^0.13.3",
+    "react-tools": "^0.13.3"
+  }
+}

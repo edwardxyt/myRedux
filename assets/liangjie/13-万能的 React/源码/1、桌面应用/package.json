@@ -1,0 +1,23 @@
+{
+  "name": "nw-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "window": {
+    "toolbar": false,
+    "width": 800,
+    "height": 500
+  },
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^11.0.1",
+    "node-jsx": "^0.13.3",
+    "pretty-bytes": "^1.0.2",
+    "react": "^0.13.3",
+    "reactify": "^1.1.1"
+  }
+}

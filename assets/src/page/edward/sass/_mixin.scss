@@ -1,0 +1,59 @@
+@mixin marginAuto($top:0, $bottom:0) {
+	margin: $top auto $bottom;
+}
+@mixin yaHei($size:12px, $line-height: 1.5, $weight:normal) {
+	font: $weight #{$size}/#{$line-height}  Microsoft YaHei, simhei;
+}
+@mixin simsun($size:12px, $line-height: 1.5, $weight:normal) {
+	font: $weight #{$size}/#{$line-height} simsun;
+}
+@mixin arial($size:10px, $line-height: 1.4, $weight:normal) {
+	font: $weight #{$size}/#{$line-height} arial;
+}
+@mixin tahoma($size:10px, $line-height: 1.4, $weight:normal) {
+	font: $weight #{$size}/#{$line-height} tahoma;
+}
+@mixin Verdana($size:10px, $line-height: 1.4, $weight:normal) {
+	font: $weight #{$size}/#{$line-height} Verdana;
+}
+
+@mixin triangle($dire, $size, $color) {
+	display: block;
+	width: 0;
+	height: 0;
+	@if $dire == top {
+		border-width: $size;
+		border-color: transparent transparent $color transparent;
+		border-style: dashed dashed solid dashed;
+	}@else if $dire == bottom {
+		border-width: $size;
+		border-color: $color transparent transparent transparent;
+		border-style: solid dashed dashed dashed;
+	}@else if $dire == left{
+		border-width: $size;
+		border-color: transparent $color transparent transparent;
+		border-style: dashed solid dashed dashed;
+	}@else if $dire == right{
+		border-width: $size;
+		border-color: transparent transparent transparent $color;
+		border-style: dashed dashed dashed solid;
+	}@else if $dire == topLeft {
+		border-width: $size $size;
+		border-color:  $color transparent transparent $color;
+		border-style: solid dashed dashed solid;
+	}@else if $dire == topRight {
+		border-width: $size $size;
+		border-color:  $color $color transparent transparent;
+		border-style: solid solid dashed dashed;
+	}
+	@else if $dire == bottomLeft {
+		border-width: $size $size;
+		border-color: transparent transparent $color $color;
+		border-style: dashed dashed solid solid;
+	}
+	@else if $dire == bottomRight {
+		border-width: $size $size;
+		border-color: transparent $color $color transparent;
+		border-style: dashed solid solid dashed;
+	}
+}
