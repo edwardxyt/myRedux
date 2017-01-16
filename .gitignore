@@ -3,5 +3,4 @@
 *.log.*
 
 node_modules
-./assets/liangjie
-./assets/dist
+assets/dist
