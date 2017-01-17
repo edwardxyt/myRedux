@@ -13,7 +13,7 @@
     },
     "betterScripts": {
         "start": {
-            "command": "gulp default",
+            "command": "gulp",
             "env": {
                 "DEBUG": "app:*"
             }
