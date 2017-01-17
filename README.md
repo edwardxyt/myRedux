@@ -9,10 +9,10 @@ _目前为Demo阶段，框架还在不断完善中，开发脚本只通过了mac
 
 * NodeJS
 * Redux
-* react
+* React
 * Ant Design
-* react-router
-* express
+* React-router
+* Express
 
 ### 技术说明 ###
 
@@ -58,7 +58,7 @@ npm run server
 ### 如何启动项目 ###
 
 _开发环境下：_
-浏览器直接输入地址：http://127.0.0.1:9527/
+浏览器直接输入地址：http://127.0.0.1:9527
 
 _生产环境下：_
-浏览器直接输入地址：http://127.0.0.1:3333/
+浏览器直接输入地址：http://127.0.0.1:3333
