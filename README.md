@@ -14,6 +14,12 @@
 _目前为Demo阶段，框架还在不断完善中，开发脚本只通过了mac测试。
 有问题欢迎联系我： 56833517@qq.com_
 
+### 蒸汽时代 ###
+
+采用gulp+webpack.
+gulp运作task.
+动态组建webpack的config文件
+
 ### 开发准备 ###
 
 ``` shell
