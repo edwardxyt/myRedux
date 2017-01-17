@@ -4,19 +4,24 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "node ./bin/www",
-        "edward": "better-npm-run edward",
-        "debug": "DEBUG=true node server.js",
+        "www": "node ./bin/www",
+        "start": "better-npm-run start",
         "server": "better-npm-run server",
-        "dev": "webpack --config webpack.config.min.js",
+        "dev": "better-npm-run dev",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "lint": "node_modules/.bin/eslint assets/src"
+        "lint": ""
     },
     "betterScripts": {
-        "edward": {
-            "command": "node bin/www",
+        "start": {
+            "command": "gulp default",
             "env": {
                 "DEBUG": "app:*"
+            }
+        },
+        "dev": {
+            "command": "gulp dev-server",
+            "env": {
+                "DEBUG": "true"
             }
         },
         "server": {
