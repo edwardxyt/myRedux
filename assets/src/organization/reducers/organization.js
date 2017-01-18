@@ -18,9 +18,9 @@ export function resetFields(state = true, action) {
 export function postsByTrees(state = {}, action) {
     switch (action.type) {
         case REQUEST_POSTS:
-            // console.log(0)
+            console.log(0)
         case RECEIVE_POSTS:
-            // console.log(1)
+            console.log(1)
             return Object.assign({}, state, {
                 [action.name]: posts(state[action.name], action)
             })
@@ -40,13 +40,13 @@ function posts(state = {
 }, action) {
     switch (action.type) {
         case REQUEST_POSTS:
-            // console.log(2)
+            console.log(2)
             return Object.assign({}, state, {
                 isFetching: true,
                 didInvalidate: false
             })
         case RECEIVE_POSTS:
-            // console.log(3)
+            console.log(3)
             return Object.assign({}, state, {
                 isFetching: false,
                 didInvalidate: true,

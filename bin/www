@@ -1,3 +1,16 @@
 #!/usr/bin/env node
+var argv = require('yargs')
+  .alias('n', 'name')
+  .argv;
 
-console.log('hello world');
+// $ www --n=edward
+console.log('hello ', argv.n);
+
+// argv 对象有一个下划线（_）属性，可以获取非连词线开头的参数。
+console.log(argv._);
+
+
+/**
+ * 参考
+ * http://www.ruanyifeng.com/blog/2015/05/command-line-with-node.html
+ */
