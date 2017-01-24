@@ -33,4 +33,4 @@ app.listen(server.port, '0.0.0.0', function() {
     // console.log(' -> that probably means: http://localhost:%d', address.port);
 });
 
-console.log('server start');
+console.log('www start');

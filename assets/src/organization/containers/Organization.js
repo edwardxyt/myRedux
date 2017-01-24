@@ -143,8 +143,11 @@ class Organization extends React.Component {
     onSelect(selectedKeys) {
         console.log('selected', selectedKeys);
     }
-    onRightClick(event) {
-        console.log(event.node);
+    onRightClick(e) {
+        console.dir(e.event);
+        debugger;
+        // debugger;
+        // console.log(e.event.clientX, e.event.clientY);
     }
     showModal() {
         const { restAll } = this.props

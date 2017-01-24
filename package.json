@@ -9,16 +9,17 @@
   "scripts": {
     "www": "node ./bin/www",
     "start": "better-npm-run start",
-    "server": "better-npm-run server",
+    "server:dev": "better-npm-run server:dev",
+    "server:pro": "better-npm-run server:pro",
     "dev": "better-npm-run dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": ""
   },
   "betterScripts": {
-    "start": {
+    "start:dev": {
       "command": "gulp",
       "env": {
-        "DEBUG": "false"
+        "mydebug": "false"
       }
     },
     "dev": {
@@ -27,10 +28,16 @@
         "DEBUG": "true"
       }
     },
-    "server": {
-      "command": "DEBUG=server node server.js",
+    "server:dev": {
+      "command": "node server.js",
       "env": {
-        "DEBUG": "false"
+        "mydebug": "true"
+      }
+    },
+    "server:pro": {
+      "command": "node server.js",
+      "env": {
+        "mydebug": "false"
       }
     }
   },

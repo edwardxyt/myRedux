@@ -8,6 +8,9 @@ var router = express.Router();
 var port = process.env.PORT || 3333;
 var __DEBUG__ = process.env.DEBUG === 'server' ? true : false;
 
+var __mydebug__ = process.env.mydebug === 'true' ? process.env.mydebug : 'Not defined！'
+console.log('__mydebug__: ' + __mydebug__);
+
 /**
  * process.env.DEBUG 只有在引入webpack.config 才会赋值
  * 而且必须在server.js 里 var compiler = webpack(config)
