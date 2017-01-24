@@ -42,7 +42,7 @@ sh init.sh
 
 ``` shell
 # 开启gulp 开启webpack-dev-server 开发环境
-npm run dev
+www 或 npm run dev
 ```
 
 ### 如何打包

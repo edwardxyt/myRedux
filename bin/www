@@ -16,3 +16,21 @@ console.log(argv._);
  * 参考
  * http://www.ruanyifeng.com/blog/2015/05/command-line-with-node.html
  */
+
+
+const http = require('http');
+const server = require('../server');
+var debug = require('debug')('server');
+var app = http.createServer(server.server);
+
+app.listen(server.port, '0.0.0.0', function() {
+    var address = app.address(); //获取服务端信息
+    debug('Listening on: %j', address);
+    debug(' -> that probably means: http://localhost:%d', address.port);
+    debug('__DEBUG__：: %j', server.__DEBUG__);
+    // console.log('__DEBUG__：' + __DEBUG__);
+    // console.log('Listening on: %j', address);
+    // console.log(' -> that probably means: http://localhost:%d', address.port);
+});
+
+console.log('server start');
