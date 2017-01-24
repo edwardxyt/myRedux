@@ -6,7 +6,7 @@ import fetchJsonp from 'fetch-jsonp';
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, Redirect, hashHistory, browserHistory, Link, IndexLink } from 'react-router';
-import { createStore, combineReducers, applyMiddleware, compose, bindActionCreators } from 'Redux';
+import { createStore, combineReducers, applyMiddleware, compose, bindActionCreators } from 'redux';
 import { Provider, connect } from 'react-redux';
 import promiseMiddleware from 'redux-promise';
 import thunkMiddleware from 'redux-thunk';
