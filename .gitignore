@@ -4,4 +4,5 @@
 
 node_modules/**
 assets/dist/**
+assets/jike_liangjie/**
 assets/assets-map.json
