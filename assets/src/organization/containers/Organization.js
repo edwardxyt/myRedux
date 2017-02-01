@@ -1,10 +1,11 @@
 import * as OrganActions from '../actions/organization'
-console.log(OrganActions);
+// console.log(OrganActions);
 
 import { getAllTeers } from '../selectors/organization'
 
 import FormAdd from '../components/FormAdd.jsx'
 import FormRegistration from '../components/FormRegistration.jsx'
+import RightMenu from '../components/RightClick.jsx'
 
 //ant
 const ButtonGroup = Button.Group;
@@ -144,10 +145,8 @@ class Organization extends React.Component {
         console.log('selected', selectedKeys);
     }
     onRightClick(e) {
-        console.dir(e.event);
-        debugger;
+        console.log(e.event.clientX,e.event.clientY);
         // debugger;
-        // console.log(e.event.clientX, e.event.clientY);
     }
     showModal() {
         const { restAll } = this.props
@@ -249,102 +248,57 @@ class Organization extends React.Component {
             }
         }
 
-        return <div className="gutter-example">
-            <Row gutter={16}>
-                <Col lg={8}>
-                    <Card className="lg" title="组织结构" extra={
-                        <div>
-                            <ButtonGroup size="small" onClick={this.handleMenuClick}>
-                                <Button onClick={this.showModal} type="primary">增加</Button>
-                                <Modal
-                                    width="600px"
-                                    visible={this.state.visible}
-                                    title="增加"
-                                    onOk={this.handleOk}
-                                    onCancel={this.handleCancel}
-                                    footer={[
-                                        // <Button key="back" type="ghost" size="large" onClick={this.handleCancel}>Return</Button>,
-                                        // <Button key="submit" type="primary" size="large" loading={this.state.loading} onClick={this.handleOk}>Submit</Button>,
-                                    ]}
-                                >
-                                    <FormAdd rest={rest} onResetClick={this.onReset} />
-                                </Modal>
-                                <Button onClick={this.showModal_2} type="ghost">修改</Button>
-                                <Modal
-                                    width="600px"
-                                    visible={this.state.visible_2}
-                                    title="编辑"
-                                    onOk={this.handleOk_2}
-                                    onCancel={this.handleCancel_2}
-                                    footer={[
-                                        // <Button key="back" type="ghost" size="large" onClick={this.handleCancel}>Return</Button>,
-                                        // <Button key="submit" type="primary" size="large" loading={this.state.loading} onClick={this.handleOk}>Submit</Button>,
-                                    ]}
-                                >
-                                    <div id="components-form-demo-register"><FormRegistration /></div>
-                                </Modal>
-                                <Button onClick={this.showModal_3} type="ghost">删除</Button>
-                                <Modal title="警告！前方高能。"
-                                    visible={this.state.visible_3}
-                                    onOk={this.handleOk_3}
-                                    confirmLoading={this.state.confirmLoading}
-                                    onCancel={this.handleCancel_3}
-                                >
-                                    <p>{this.state.ModalText}</p>
-                                </Modal>
-                                <Dropdown overlay={this.menu}>
-                                    <Button size="small" type="ghost">
-                                    更多操作<Icon type="down" />
-                                    </Button>
-                                </Dropdown>
-                            </ButtonGroup>
-                        </div>
-                    }>
-                    <Tree onRightClick={this.onRightClick} onSelect={this.onSelect} >
-                        {treeNodes}
-                    </Tree>
-                    </Card>
-                </Col>
-                <Col lg={16}>
-                    <Card className="lg" title="列表" extra={
-                        <Form inline>
-                            <FormItem>
-                                <RadioGroup size="small" onChange={this.onChange} defaultValue="a">
-                                    <RadioButton value="a">用户</RadioButton>
-                                    <RadioButton value="b">岗位</RadioButton>
-                                </RadioGroup>
-                            </FormItem>
-                            <FormItem>
-                                <Input size="small" placeholder="输入关键字" />
-                            </FormItem>
-                            <FormItem>
-                                <Button size="small" htmlType="submit">搜索</Button>
-                            </FormItem>
-                            <FormItem>
-                                <ButtonGroup size="small" onClick={this.handleMenuClick}>
-                                    <Button type="primary">增加</Button>
-                                    <Button type="ghost">修改</Button>
-                                    <Button type="ghost">删除</Button>
-                                    <Button type="ghost">离职</Button>
-                                    <Button type="ghost">查询</Button>
-                                    <Button type="ghost">添加岗位</Button>
-                                    <Dropdown overlay={this.menu}>
-                                        <Button size="small" type="ghost">
-                                        更多操作<Icon type="down" />
-                                        </Button>
-                                    </Dropdown>
-                                </ButtonGroup>
-                            </FormItem>
-                        </Form>
-                    }>
-                        <Table pagination={this.pagination} rowSelection={rowSelection} columns={columns} dataSource={data}/>
-                    </Card>
-                    <Card title="兼职岗位 (李某)">
-                        <Table pagination={{ size:"small", showQuickJumper: true}} dataSource={data_2} columns={columns_2} />
-                    </Card>
-                </Col>
-            </Row>
-        </div>
+        return
+          <div className="gutter-example">
+              <Row gutter={16}>
+                  <Col lg={8}>
+                      <Card className="lg" title="组织结构">
+                        <Tree onRightClick={this.onRightClick} onSelect={this.onSelect} >
+                            {treeNodes}
+                        </Tree>
+                      </Card>
+                      <RightMenu/>
+                  </Col>
+                  <Col lg={16}>
+                      <Card className="lg" title="列表" extra={
+                          <Form inline>
+                              <FormItem>
+                                  <RadioGroup size="small" onChange={this.onChange} defaultValue="a">
+                                      <RadioButton value="a">用户</RadioButton>
+                                      <RadioButton value="b">岗位</RadioButton>
+                                  </RadioGroup>
+                              </FormItem>
+                              <FormItem>
+                                  <Input size="small" placeholder="输入关键字" />
+                              </FormItem>
+                              <FormItem>
+                                  <Button size="small" htmlType="submit">搜索</Button>
+                              </FormItem>
+                              <FormItem>
+                                  <ButtonGroup size="small" onClick={this.handleMenuClick}>
+                                      <Button type="primary">增加</Button>
+                                      <Button type="ghost">修改</Button>
+                                      <Button type="ghost">删除</Button>
+                                      <Button type="ghost">离职</Button>
+                                      <Button type="ghost">查询</Button>
+                                      <Button type="ghost">添加岗位</Button>
+                                      <Dropdown overlay={this.menu}>
+                                          <Button size="small" type="ghost">
+                                          更多操作<Icon type="down" />
+                                          </Button>
+                                      </Dropdown>
+                                  </ButtonGroup>
+                              </FormItem>
+                          </Form>
+                      }>
+                          <Table pagination={this.pagination} rowSelection={rowSelection} columns={columns} dataSource={data}/>
+                      </Card>
+                      <Card title="兼职岗位 (李某)">
+                          <Table pagination={{ size:"small", showQuickJumper: true}} dataSource={data_2} columns={columns_2} />
+                      </Card>
+                  </Col>
+              </Row>
+          </div>
     }
     componentDidMount() {
         // const { dispatch } = this.props;

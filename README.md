@@ -42,7 +42,7 @@ sh init.sh
 
 ``` shell
 # 开启gulp 开启webpack-dev-server 开发环境
-www 或 npm run dev
+npm run dev
 ```
 
 ### 如何打包
@@ -52,8 +52,13 @@ www 或 npm run dev
 npm run start
 
 # 启动node express 模拟生产环境
-npm run server
+npm link
+www
+
+# 测试参数
+npm run log:dev 或 npm run log:pro
 ```
+
 
 ### 如何启动项目
 

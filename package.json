@@ -9,32 +9,29 @@
   "scripts": {
     "www": "node ./bin/www",
     "start": "better-npm-run start",
-    "server:dev": "better-npm-run server:dev",
-    "server:pro": "better-npm-run server:pro",
+    "log:dev": "better-npm-run log:dev",
+    "log:pro": "better-npm-run log:pro",
     "dev": "better-npm-run dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": ""
   },
   "betterScripts": {
-    "start:dev": {
+    "start": {
       "command": "gulp",
       "env": {
         "mydebug": "false"
       }
     },
     "dev": {
-      "command": "gulp dev-server",
-      "env": {
-        "DEBUG": "true"
-      }
+      "command": "gulp dev-server"
     },
-    "server:dev": {
-      "command": "node server.js",
+    "log:dev": {
+      "command": " node server.js",
       "env": {
         "mydebug": "true"
       }
     },
-    "server:pro": {
+    "log:pro": {
       "command": "node server.js",
       "env": {
         "mydebug": "false"
