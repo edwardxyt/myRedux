@@ -169,6 +169,7 @@ gulp.task('dev-server',function(){
         publicPath:webpackDevConfig.output.publicPath,
         hot:true,
         inline: true,
+        //如果这里使用node而不是gulp 就可以直接使用 $ webpack-dev-server --inline --content-base . --history-api-fallback
         historyApiFallback: {
             rewrites: [
                 // shows views/landing.html as the landing page
