@@ -19,22 +19,27 @@
     "start": {
       "command": "gulp",
       "env": {
-        "mydebug": "false"
+        "DEBUG": "app:*"
       }
     },
     "dev": {
-      "command": "gulp dev-server"
+      "command": "gulp dev-server",
+      "env": {
+        "DEBUG": "app:*"
+      }
     },
     "log:dev": {
       "command": "cross-env NODE_ENV=development node server.js",
       "env": {
-        "mydebug": "true"
+        "NODE_ENV": "development",
+        "DEBUG": "app:*"
       }
     },
     "log:pro": {
       "command": "cross-env NODE_ENV=production node server.js",
       "env": {
-        "mydebug": "false"
+        "NODE_ENV": "production",
+        "DEBUG": "app:*"
       }
     }
   },
